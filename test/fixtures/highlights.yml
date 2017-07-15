@@ -1,0 +1,48 @@
+# == Schema Information
+#
+# Table name: highlights
+#
+#  id                 :integer          not null, primary key
+#  title              :string
+#  permalink          :string
+#  url                :string
+#  media              :text
+#  media_embed        :text
+#  secure_media       :text
+#  secure_media_embed :text
+#  created            :datetime
+#  created_utc        :datetime
+#  player_id          :integer
+#  team_id            :integer
+#  domain_id          :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  permalink: MyString
+  url: MyString
+  media: MyText
+  media_embed: MyText
+  secure_media: MyText
+  secure_media_embed: MyText
+  created: 2017-07-14 22:16:49
+  created_utc: 2017-07-14 22:16:49
+  player_id: 1
+  domain_id: 1
+
+two:
+  title: MyString
+  permalink: MyString
+  url: MyString
+  media: MyText
+  media_embed: MyText
+  secure_media: MyText
+  secure_media_embed: MyText
+  created: 2017-07-14 22:16:49
+  created_utc: 2017-07-14 22:16:49
+  player_id: 1
+  domain_id: 1

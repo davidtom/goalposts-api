@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Goal Posts</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container" >
+      <!--  Nav Bar -->
+      <%= render '/layouts/nav' %>
+      <!--  Page Body -->
+      <%= yield %>
+      <!--  Footer -->
+      <div class="mastfoot">
+        <div class="inner">
+          <!--  TBD -->
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
