@@ -10,8 +10,8 @@
 #  media_embed        :text
 #  secure_media       :text
 #  secure_media_embed :text
-#  created            :datetime
-#  created_utc        :datetime
+#  posted             :datetime
+#  posted_utc         :datetime
 #  player_id          :integer
 #  team_id            :integer
 #  domain_id          :integer

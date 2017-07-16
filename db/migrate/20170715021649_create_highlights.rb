@@ -8,8 +8,8 @@ class CreateHighlights < ActiveRecord::Migration[5.1]
       t.text :media_embed
       t.text :secure_media
       t.text :secure_media_embed
-      t.datetime :created
-      t.datetime :created_utc
+      t.datetime :posted
+      t.datetime :posted_utc
       t.integer :player_id
       t.integer :team_id
       t.integer :domain_id

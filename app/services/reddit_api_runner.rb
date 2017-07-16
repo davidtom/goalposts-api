@@ -32,26 +32,34 @@ class RedditAPIRunner
 
   def self.has_score?(post_title)
     # Search for and return everything matching this pattern: (#-#)
-    remove_spaces(post_title).scan(/\(\d+-\d+\)/).any? ? true : false
+    remove_spaces(post_title).scan(/\d+-\d+/).any? ? true : false
+  end
+
+
+  def self.has_goal_and_score(post_title)
+    #search to see if the title includes the word goal and has a score (-)
+    remove_spaces(post_title).scan(/goal.+-/).any? ? true : false
   end
 
   def self.has_penalty?(post_title)
     # Search for and return any instance of penalty in down-cased post title
-    remove_spaces(post_title).downcase.scan(/penalty/).any? ? true : false
+    remove_spaces(post_title).scan(/penalty/).any? ? true : false
   end
 
-  def self.meets_goal_criteria(flair, post_title)
+  def self.meets_goal_criteria(post)
     #combines methods above to check all criteria that indicate a post is a goal highlight
-    t = post_title
-    valid_flair?(flair) && (has_minute?(t) || has_score?(t) || has_penalty?(t))
+    t = post.title.downcase
+    required = valid_flair?(post.link_flair_text)
+    optional = (has_minute?(t) || has_score?(t) || has_penalty?(t) || has_goal_and_score(t))
+    required && optional
   end
 
-  def self.test_scan
+  def self.scan_test
     #View post stream and verify that #meets_goal_criteria is working correctly
     socket.post_stream do |post|
       puts post.title
       puts post.link_flair_text
-      puts meets_goal_criteria(post.link_flair_text, post.title)
+      puts meets_goal_criteria(post)
       puts "----------"
     end
   end
@@ -59,7 +67,7 @@ class RedditAPIRunner
   def self.create_highlight_if_valid(post)
     # Creates a highlight, with domain, from a post if it is a valid goal highlight
     # Also check to make sure that the highlight is valid inside the database
-    if meets_goal_criteria(post.link_flair_text, post.title)
+    if meets_goal_criteria(post)
       Highlight.new(Highlight.assignment_hash(post)).tap do |h|
         if h.save
           h.domain = Domain.find_or_create_by(name: post.domain)

@@ -10,16 +10,11 @@
 #  media_embed        :text
 #  secure_media       :text
 #  secure_media_embed :text
-#  created            :datetime
-#  created_utc        :datetime
+#  posted             :datetime
+#  posted_utc         :datetime
 #  player_id          :integer
 #  team_id            :integer
 #  domain_id          :integer
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#
-
- # player_id          :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
@@ -41,14 +36,9 @@ class Highlight < ApplicationRecord
     media_embed: post.media_embed,
     secure_media: post.secure_media,
     secure_media_embed: post.secure_media_embed,
-    created: Time.at(post.created),
-    created_utc: Time.at(post.created_utc)
+    posted: Time.at(post.created), #full datetime when posted, local time of poster
+    posted_utc: Time.at(post.created_utc), #full datetime when posted, utc time
   }
-  end
-
-  def self.extract_time(datetime_object)
-    # Extract only the time (HH:MM:SS) from a DateTime object
-    datetime_object.strftime("%H:%M:%S")
   end
 
   def self.all_group_and_order_by_date
@@ -65,14 +55,14 @@ class Highlight < ApplicationRecord
     Hash[sorted_hash.sort_by{|date, highlights| date}.reverse]
   end
 
-  def created_utc_date
+  def posted_utc_date
     #returns only the date when the highlight was posted to reddit
-    created_utc.to_datetime.to_date
+    posted_utc.to_datetime.to_date
   end
 
-  def created_utc_time
-    #returns only the time when the highlight was posted to reddit
-    Highlight.extract_time(created_utc.to_datetime)
+  def posted_utc_time
+    #returns only the time (HH:MM:SS) when the highlight was posted to reddit
+    posted_utc.to_datetime.strftime("%H:%M:%S")
   end
 
   def reddit_link

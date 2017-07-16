@@ -15,6 +15,7 @@ forever! Figure out another way to create them way to get players (scrape espn
 - create log files to run apicontroller.scan (first need to figure out how to
   scan a listing, not a stream)
 - Add a rating system to each goal (put top goal on front page?)
+- Add comment system
 - figure out what to do for teams that don't have a crest (id 27 is one)
 - Manually create highlight for: https://www.reddit.com/r/soccer/comments/6lmg7u/england_u19_10_netherlands_u19_brereton_84_euro/
 - incorporate strong params!
