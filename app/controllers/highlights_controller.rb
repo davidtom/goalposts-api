@@ -3,7 +3,9 @@ class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show]
 
   def index
-    @highlights = Highlight.all_group_and_order_by_date
+    highlights = Highlight.order("strftime('%H:%M:%S', posted_utc) ASC, posted_utc DESC")
+    highlights = highlights.group_by {|h| h.posted_utc_date}.to_a
+    @highlights = Kaminari.paginate_array(highlights).page(params[:page]).per(1)
   end
 
   def show

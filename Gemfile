@@ -33,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "redd"
 # Use api to make html calls to http://www.football-data.org/index
 gem 'football__data'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

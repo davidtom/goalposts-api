@@ -41,18 +41,9 @@ class Highlight < ApplicationRecord
   }
   end
 
-  def self.all_group_and_order_by_date
-    #TODO REFACTOR THIS TO USE SQL!!
-    #Sort goals in ascending order by 'created_utc'; group by created_at.to_date
-    #Returns a hash: {created_at.to_date: [highlights]} -sorted asc
-    sorted_hash = {}
-    self.order("created_utc ASC").each do |highlight|
-      date = highlight.created_utc
-      sorted_hash[date] = [] if sorted_hash[date].nil?
-      sorted_hash[date] << highlight
-    end
-    #sort hash by keys; descending order by date
-    Hash[sorted_hash.sort_by{|date, highlights| date}.reverse]
+  def self.all_order_by_date_and_time
+    #returns all highlights, sorted descending by date, ascending by time posted (UTC)
+    Highlight.from("highlights").order("strftime('%H:%M:%S', posted_utc) ASC, posted_utc DESC")
   end
 
   def posted_utc_date

@@ -1,19 +1,23 @@
 class TeamsController < ApplicationController
 
+  before_action :set_team, only: [:show]
+
   def index
     @teams = Team.order("name ASC")
-    erb :"teams/index.html"
   end
 
   def show
-    @team = Team.find(params[:id])
-    erb :"teams/show.html"
   end
 
   def new
     # tbd
   end
 
+  private
+
+    def set_team
+      Team.find(params[:id])
+    end
 
 
 end

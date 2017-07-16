@@ -1,0 +1,15 @@
+<h1 id="index-header">All Teams</h1>
+<table>
+  <tr>
+    <th>Team Name</th>
+    <th>Short Name</th>
+    <th>Code</th>
+  </tr>
+  <%  @teams.each do |team| %>
+  <tr>
+    <td><%= link_to team.name, team_path(team) %></td>
+    <td><%= team.shortname %></td>
+    <td><%= team.code %></td>
+  </tr>
+  <% end %>
+</table>

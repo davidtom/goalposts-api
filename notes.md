@@ -1,10 +1,10 @@
 ##TODO##
 - Decide if/how to break highlights #index and #show into partials
+- Gem for teams#index table: https://github.com/leikind/wice_grid
 - Add api keys to secrets file
 - Error handle HTTP request timeout errors
 - Add more info to cron log - were any records added? if so, how many?
 - last team id checked was 2871
-- paginate highlights page!
 - look into Oembed API to embed videos from just a url
 - incorporate players into database; use apis to match DONT DO THIS - will take
 forever! Figure out another way to create them way to get players (scrape espn
@@ -12,20 +12,15 @@ forever! Figure out another way to create them way to get players (scrape espn
 - create data flow to be alerted when unmatched players and teams are added
 - create page to add/edit teams
 - create page to add/edit players
-- create log files to run apicontroller.scan (first need to figure out how to
-  scan a listing, not a stream)
 - Add a rating system to each goal (put top goal on front page?)
+- Add users
 - Add comment system
 - figure out what to do for teams that don't have a crest (id 27 is one)
 - Manually create highlight for: https://www.reddit.com/r/soccer/comments/6lmg7u/england_u19_10_netherlands_u19_brereton_84_euro/
 - incorporate strong params!
 
 
-###Think about controllers and structure:
-- what the homepage controller should be called (if I even want a homepage)
-      - https://stackoverflow.com/questions/786535/naming-the-root-controller
-      - "I often make two controllers for interactions with things that aren't the usual REST stuff: 'welcome' and 'dashboard.' The welcome controller is mapped to my site's root, and the 'dashboard' controller is similar, but for logged in users."
-      - This is probably how I should do it!
+## Setup Notes:
 
 **Post number:**
 - API post stream seems to give me the newest 100 posts
