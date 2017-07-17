@@ -1,9 +1,10 @@
 ##TODO##
+- import data from goal_highlights: teams at least (highlights may be fucked due to domains)
 - Decide if/how to break highlights #index and #show into partials
 - Gem for teams#index table: https://github.com/leikind/wice_grid
 - Add api keys to secrets file
 - Error handle HTTP request timeout errors
-- Add more info to cron log - were any records added? if so, how many?
+- Set up cron jobs
 - last team id checked was 2871
 - look into Oembed API to embed videos from just a url
 - incorporate players into database; use apis to match DONT DO THIS - will take

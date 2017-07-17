@@ -8,8 +8,12 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
-# Use sqlite3 as the database for Active Record
+# Use sqlite3 as the database for Active Record (initial)
 gem 'sqlite3'
+# Use Postgres as the database for ActiveRecord (current)
+gem 'pg'
+# Migrate data from sqlite3 to postgres database
+gem 'taps'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -35,6 +39,8 @@ gem "redd"
 gem 'football__data'
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
 gem 'kaminari'
+# Ruby gem that provides a clear syntax for writing and deploying cron jobs.
+gem "whenever"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
