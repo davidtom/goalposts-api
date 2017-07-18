@@ -26,6 +26,8 @@ class Highlight < ApplicationRecord
 
   validates :title, uniqueness: true
 
+  scope :ordered_all, -> {order("cast(posted_utc as date) DESC, cast(posted_utc as time) ASC")}
+
   def self.assignment_hash(post)
     #convert data from a redd post object into a hash for mass assignment
   {
@@ -39,11 +41,6 @@ class Highlight < ApplicationRecord
     posted: Time.at(post.created), #full datetime when posted, local time of poster
     posted_utc: Time.at(post.created_utc), #full datetime when posted, utc time
   }
-  end
-
-  def self.all_order_by_date_and_time
-    #returns all highlights, sorted descending by date, ascending by time posted (UTC)
-    Highlight.from("highlights").order("strftime('%H:%M:%S', posted_utc) ASC, posted_utc DESC")
   end
 
   def posted_utc_date

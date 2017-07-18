@@ -12,8 +12,6 @@ gem 'rails', '~> 5.1.2'
 gem 'sqlite3'
 # Use Postgres as the database for ActiveRecord (current)
 gem 'pg'
-# Migrate data from sqlite3 to postgres database
-gem 'taps'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
