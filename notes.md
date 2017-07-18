@@ -1,4 +1,5 @@
 ##TODO##
+- Bootstrap!
 - Gem for teams#index table: https://github.com/leikind/wice_grid
 - Add api keys to secrets file
 - Error handle HTTP request timeout errors
