@@ -1,0 +1,6 @@
+<h3><%= highlight.title %></h3>
+<%= highlight.clean_media_embed %>
+<br>
+<%= link_to "View Details", highlight_path(highlight), target: "_blank" %> |
+<%= link_to "View Source Media", highlight.url, target: "_blank" %> |
+<%= link_to "View Reddit Post", highlight.reddit_link, target: "_blank" %>

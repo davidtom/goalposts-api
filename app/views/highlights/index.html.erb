@@ -3,12 +3,7 @@
 <% @highlights.to_h.each do |date, highlights| %>
 <h2><%= date %></h2>
 <% highlights.each do |highlight| %>
-<h3><%= highlight.title %></h3>
-<%= highlight.clean_media_embed %>
-<br>
-<%= link_to "View Details", highlight_path(highlight), target: "_blank" %> |
-<%= link_to "View Source Media", highlight.url, target: "_blank" %> |
-<%= link_to "View Reddit Post", highlight.reddit_link, target: "_blank" %>
+<%= render partial: "highlight_brief", locals: {highlight: highlight} %>
 <% end %>
 <% end %>
 <%= paginate @highlights %>

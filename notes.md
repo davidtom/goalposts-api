@@ -1,24 +1,21 @@
 ##TODO##
-- import data from goal_highlights: teams at least (highlights may be fucked due to domains)
-- Decide if/how to break highlights #index and #show into partials
 - Gem for teams#index table: https://github.com/leikind/wice_grid
 - Add api keys to secrets file
 - Error handle HTTP request timeout errors
 - Set up cron jobs
 - last team id checked was 2871
 - look into Oembed API to embed videos from just a url
-- incorporate players into database; use apis to match DONT DO THIS - will take
-forever! Figure out another way to create them way to get players (scrape espn
-  maybe??), or drop them entirely
 - create data flow to be alerted when unmatched players and teams are added
 - create page to add/edit teams
 - create page to add/edit players
 - Add a rating system to each goal (put top goal on front page?)
 - Add users
+- Create "god" access to be able to delete and edit
 - Add comment system
 - figure out what to do for teams that don't have a crest (id 27 is one)
-- Manually create highlight for: https://www.reddit.com/r/soccer/comments/6lmg7u/england_u19_10_netherlands_u19_brereton_84_euro/
-- incorporate strong params!
+- incorporate players into database; use apis to match DONT DO THIS - will take
+forever! Figure out another way to create them way to get players (scrape espn
+  maybe??), or drop them entirely
 
 
 ## Setup Notes:

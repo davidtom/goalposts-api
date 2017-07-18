@@ -1,11 +1,4 @@
-<h1><%= @highlight.title %></h1>
-<%= @highlight.clean_media_embed %>
-<p><b>Date created:</b> <%= @highlight.posted_utc_date %></p>
-<p><b>Time created (UTC):</b> <%= @highlight.posted_utc_time %></p>
-<p><b>Player name:</b> </p><!-- UPDATE ONCE PLAYER DATAFLOW IS MADE - make a suggest correction button!! -->
-<p><b>Team name:</b> </p><!-- UPDATE ONCE TEAM DATAFLOW IS MADE - make a suggest correction button!! -->
-<p><b>Source media:</b> <%= link_to @highlight.domain.name, @highlight.url, target: "_blank" %></p>
-<p><b>Reddit post:</b> <%= link_to "view comments", @highlight.reddit_link, target: "_blank" %></p>
+<%= render partial: "highlight_details", locals: {highlight: @highlight} %>
 <%= form_tag highlights_path, method: "get" do %>
   <%= submit_tag  "Return to All Highlights"%>
 <% end %>
