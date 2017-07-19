@@ -1,11 +1,11 @@
 ##TODO##
+- Oembed API to embed videos from just a url
 - Bootstrap!
 - Gem for teams#index table: https://github.com/leikind/wice_grid
 - Add api keys to secrets file
 - Error handle HTTP request timeout errors
 - Set up cron jobs
 - last team id checked was 2871
-- look into Oembed API to embed videos from just a url
 - create data flow to be alerted when unmatched players and teams are added
 - create page to add/edit teams
 - create page to add/edit players

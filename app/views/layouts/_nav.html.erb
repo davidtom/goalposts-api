@@ -1,6 +1,14 @@
-<img src="../../public/images/soccer-silhouette-image.png" alt = "logo">
-<h1>WatchGoals</h1>
-<a href="/">Home</a>
-<a href="/highlights">Highlights</a>
-<a href="/teams">Teams</a>
-<!-- <a href="/players">Players</a> -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <%= image_tag "soccer-silhouette-image.png", width:30, height: 30, alt: "logo" %>
+        Goal Posts
+      </a>
+      <%= link_to "Home", home_path, style: 'color: #000;' %>
+      <%= link_to "Highlights", highlights_path, style: 'color: #000;' %>
+      <%= link_to "Teams", teams_path, style: 'color: #000;' %>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
