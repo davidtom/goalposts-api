@@ -1,5 +1,5 @@
 <h1><%= highlight.title %></h1>
-<%= highlight.clean_media_embed %>
+<%= highlight.clean_media_embed.html_safe %>
 <p><b>Date created:</b> <%= highlight.posted_utc_date %></p>
 <p><b>Time created (UTC):</b> <%= highlight.posted_utc_time %></p>
 <p><b>Player name:</b> </p><!-- UPDATE ONCE PLAYER DATAFLOW IS MADE - make a suggest correction button!! -->

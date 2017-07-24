@@ -39,6 +39,8 @@ gem 'football__data'
 gem 'kaminari'
 # Ruby gem that provides a clear syntax for writing and deploying cron jobs.
 gem "whenever"
+# Gem to get embeddable HTML representations of supported web pages, based on their URLs.
+gem "ruby-oembed"
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Compass.
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 # Bootstrap JavaScript depends on jQuery

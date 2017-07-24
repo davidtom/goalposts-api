@@ -1,19 +1,24 @@
-##TODO##
-- Oembed API to embed videos from just a url
-- Bootstrap!
-- Gem for teams#index table: https://github.com/leikind/wice_grid
+##TODO## (newly prioritized!!)
+- FOCUS: getting this up so my database is persistent. All other changes can be
+pushed!
+- Oembed API to embed videos from just a url??
+- Finish teams index page (use gem?)
+- figure out what to do for teams that don't have a crest (id 27 is one)
+- Add users
+- create page to add/edit teams
+- create data flow to try to match teams and send to a page to confirm/edit
+- Add a rating system to each goal (put top goal on front page?)
+- Add comment system
+- Create "god" access to be able to delete and edit (team, comments?)
 - Add api keys to secrets file
+- Bootstrap
+
+
+- Gem for teams#index table: https://github.com/leikind/wice_grid
 - Error handle HTTP request timeout errors
 - Set up cron jobs
 - last team id checked was 2871
-- create data flow to be alerted when unmatched players and teams are added
-- create page to add/edit teams
 - create page to add/edit players
-- Add a rating system to each goal (put top goal on front page?)
-- Add users
-- Create "god" access to be able to delete and edit
-- Add comment system
-- figure out what to do for teams that don't have a crest (id 27 is one)
 - incorporate players into database; use apis to match DONT DO THIS - will take
 forever! Figure out another way to create them way to get players (scrape espn
   maybe??), or drop them entirely
