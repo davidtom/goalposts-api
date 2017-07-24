@@ -3,10 +3,10 @@ class RedditAPIRunner
   def self.session
     Redd.it(
       user_agent: "Goal_Highlights",
-      client_id: "_6Ql0Wm5PO_ABA",
-      secret: "asRLazsZt8mK1Q4tjqUevZxGSkU",
-      username: "Shabla_goo32",
-      password: "jsoccer4"
+      client_id: ENV["REDDIT_CLIENT_ID"],
+      secret: ENV["REDDIT_SECRET"],
+      username: ENV["REDDIT_USERNAME"],
+      password: ENV["REDDIT_PASSWORD"]
     )
   end
 

@@ -4,7 +4,7 @@ class FootballDataAPIRunner
   # https://github.com/delta4d/football-data
   FootballData.configure do |config|
     # get api key at 'http://api.football-data.org/register'
-    config.api_key = "e60b423919674a7586a30350e2cc359c"
+    config.api_key = ENV["FOOTBALLDATA_API_KEY"]
 
     # default api version is 'alpha' if not setted
     config.api_version = 'v1'
