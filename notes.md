@@ -2,6 +2,7 @@
 - FOCUS: getting this up so my database is persistent. All other changes can be
 pushed!
 - Finish teams index page (use gem?)
+- SET UP DEPENDENT DESTROY RELATIONSHIPS
 - Add users
 - create page to add/edit teams
 - create data flow to try to match teams and send to a page to confirm/edit
