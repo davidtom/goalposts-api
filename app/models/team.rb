@@ -33,4 +33,12 @@ class Team < ApplicationRecord
       code: data["code"],
     }
   end
+
+  def get_logo
+    if !self.logo_url
+      "/assets/shield.png"
+    else
+      self.logo_url
+    end
+  end
 end

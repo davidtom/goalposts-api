@@ -1,9 +1,7 @@
 ##TODO## (newly prioritized!!)
 - FOCUS: getting this up so my database is persistent. All other changes can be
 pushed!
-- Oembed API to embed videos from just a url??
 - Finish teams index page (use gem?)
-- figure out what to do for teams that don't have a crest (id 27 is one)
 - Add users
 - create page to add/edit teams
 - create data flow to try to match teams and send to a page to confirm/edit
@@ -13,8 +11,11 @@ pushed!
 - Add api keys to secrets file
 - Bootstrap
 
+- teams show page needs: link to add/edit crest, recent goals section, link to all team goals page (new route)
+
 
 - Gem for teams#index table: https://github.com/leikind/wice_grid
+- Oembed API to embed videos from just a url??
 - Error handle HTTP request timeout errors
 - Set up cron jobs
 - last team id checked was 2871

@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>WatchGoals: Team</title>
-  </head>
-  <body>
-    <div class="content-wrapper">
-      <img class="team-page" src="<%= @team.logo %>" alt="team crest">
-
-    </div><!-- content-wrapper -->
-  </body>
-</html>
+<h1><%= @team.name %></h1>
+<%= image_tag @team.get_logo, width:90, height: 90, alt: "team crest" %>
+<% if !@team.logo_url %>
+<p><%= link_to "submit crest url", "/", style: "font-size:60%" %></p>
+<% end %>
+<p><b>Short Name:</b> <%= @team.shortname %></p>
+<p><b>Code:</b> <%= @team.code %></p>
