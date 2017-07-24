@@ -36,7 +36,7 @@ class Team < ApplicationRecord
 
   def get_logo
     if !self.logo_url
-      "/assets/shield.png"
+      "https://cdn.pbrd.co/images/GCtjFoV.png"
     else
       self.logo_url
     end
