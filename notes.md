@@ -1,5 +1,4 @@
 ##TODO## (newly prioritized!!)
-- Finish teams index page (use gem?)
 - SET UP DEPENDENT DESTROY RELATIONSHIPS
 - Add users
 - create page to add/edit teams
@@ -12,8 +11,6 @@
 
 - teams show page needs: link to add/edit crest, recent goals section, link to all team goals page (new route)
 
-
-- Gem for teams#index table: https://github.com/leikind/wice_grid
 - Oembed API to embed videos from just a url??
 - Error handle HTTP request timeout errors
 - last team id checked was 2871
