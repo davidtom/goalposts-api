@@ -1,15 +1,19 @@
 <h1>All Teams</h1>
-<table>
-  <tr>
-    <th>Team Name</th>
-    <th>Short Name</th>
-    <th>Code</th>
-  </tr>
+<table id="teams-table" class="display">
+  <thead>
+    <tr>
+      <th>Team Name</th>
+      <th>Short Name</th>
+      <th>Code</th>
+    </tr>
+  <thead>
+  <tbody>
   <%  @teams.each do |team| %>
-  <tr>
-    <td><%= link_to team.name, team_path(team) %></td>
-    <td><%= team.shortname %></td>
-    <td><%= team.code %></td>
-  </tr>
+    <tr>
+      <td><%= link_to team.name, team_path(team) %></td>
+      <td><%= team.shortname %></td>
+      <td><%= team.code %></td>
+    </tr>
   <% end %>
+  </tbody>
 </table>

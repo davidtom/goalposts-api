@@ -1,6 +1,4 @@
 ##TODO## (newly prioritized!!)
-- FOCUS: getting this up so my database is persistent. All other changes can be
-pushed!
 - Finish teams index page (use gem?)
 - SET UP DEPENDENT DESTROY RELATIONSHIPS
 - Add users
@@ -18,7 +16,6 @@ pushed!
 - Gem for teams#index table: https://github.com/leikind/wice_grid
 - Oembed API to embed videos from just a url??
 - Error handle HTTP request timeout errors
-- Set up cron jobs
 - last team id checked was 2871
 - create page to add/edit players
 - incorporate players into database; use apis to match DONT DO THIS - will take
