@@ -1,3 +1,7 @@
-$("document").ready(function(){
-    $('table#teams-table').DataTable();
-});
+function createDataTable(){
+  $('table#teams-table').DataTable();
+}
+
+document.addEventListener("turbolinks:load", function() {
+  createDataTable();
+})

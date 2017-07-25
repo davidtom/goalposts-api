@@ -18,4 +18,3 @@
 
 //= require popper
 //= require bootstrap-sprockets
-//= require datatable.js
