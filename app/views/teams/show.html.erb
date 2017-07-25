@@ -5,3 +5,6 @@
 <% end %>
 <p><b>Short Name:</b> <%= @team.shortname %></p>
 <p><b>Code:</b> <%= @team.code %></p>
+<%= form_tag teams_path, method: "get" do %>
+  <%= submit_tag  "Return to All Teams"%>
+<% end %>
