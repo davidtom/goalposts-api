@@ -1,0 +1,22 @@
+<%= form_for user do |f| %>
+<div class="row">
+    <div class="col-md-6">
+      <p>
+        <%= f.label :username %>:*
+        <%= f.text_field :username %>
+      </p>
+      <p>
+        <%= f.label :password %>:*
+        <%= f.password_field :password %>
+      </p>
+      <p>
+        <%= f.label "Confirm password" %>:*
+        <%= f.password_field :password_confirmation %>
+      </p>
+      <p>
+        <%= f.label :email %>:
+        <%= f.email_field :email %>
+      </p>
+      <p>* Required</p>
+      <p><%= f.submit "Sign up"%></p>
+<% end %>
