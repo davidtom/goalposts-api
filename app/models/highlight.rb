@@ -27,6 +27,7 @@ class Highlight < ApplicationRecord
   validates :title, uniqueness: true
 
   scope :ordered_all, -> {order("cast(posted_utc as date) DESC, cast(posted_utc as time) ASC")}
+  scope :no_team, -> {where(team_id: nil)}
 
   def self.assignment_hash(post)
     #convert data from a redd post object into a hash for mass assignment
