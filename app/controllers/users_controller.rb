@@ -2,10 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
 
   def new
-    # TODO: uncomment once sessions and current_user has been set up
-    # if current_user
-    #   redirect_to user_path(current_user)
-    # end
+    if current_user
+      redirect_to home_path
+    end
     @user = User.new
   end
 
@@ -30,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
     def set_user
       @user = User.find(params[:id])
     end

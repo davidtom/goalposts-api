@@ -15,16 +15,20 @@ class User < ApplicationRecord
 
   # associations
 
+
+  before_save { |user| user.username = user.username.downcase }
+
   validates :username,
     presence: true,
     uniqueness: {case_sensitive:false},
     length: {minimum: 3, maximum: 25}
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # NOTE: removing this for now - users dont need to give me an email
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :email,
-    format: {with: VALID_EMAIL_REGEX},
-    uniqueness: {case_sensitive: false}
+  # validates :email,
+  #   format: {with: VALID_EMAIL_REGEX},
+  #   uniqueness: {case_sensitive: false}
 
   has_secure_password
 
