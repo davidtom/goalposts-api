@@ -31,6 +31,7 @@ class HighlightsController < ApplicationController
   end
 
   def pending_edit
+    require_admin
   end
 
   def pending_update
