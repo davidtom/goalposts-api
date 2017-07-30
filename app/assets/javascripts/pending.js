@@ -12,6 +12,7 @@ function jsonToForm(json){
   <form class='pending-highlight' action='/highlights/pending' method='post'>\
   <strong><label>Highlight Title: </label></strong>" + highlight.title + "<br>\
   <label><strong>Team Name: </label></strong><input type='text' class='team-input' name='highlight[team]' value='" + highlight.team_id + "'/><br>\
+  <label><strong>Media Embed: </label></strong><textarea class='media-embed-input' name='highlight[media_embed]' rows='2' cols='120'>" + highlight.media_embed + "</textarea><br>\
   <strong><label>Source Media: </label></strong><a href='" + highlight.url + "'>" + highlight.domain_id + "</a><br>\
   <strong><label>Reddit Post: </label></strong> <a href='http://www.reddit.com" + highlight.permalink + "'> Link </a><br>\
   <strong><label>Posted (UTC): </label></strong> " + highlight.posted_utc + "<br>\
