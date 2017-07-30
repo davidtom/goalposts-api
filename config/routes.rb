@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # Highlights Data Pipeline
   # JSON Data:
-  get "/pendinghighlights", to: "highlights#pendingJSON"
+  get "highlights/pendingJSON", to: "highlights#pendingJSON"
   # View:
   get "highlights/pending", to: "highlights#pending_edit"
   post "highlights/pending", to: "highlights#pending_update"

@@ -33,7 +33,7 @@ class HighlightsController < ApplicationController
   def pending_edit
   end
 
-  def pending_show
+  def pending_update
   end
 
   private

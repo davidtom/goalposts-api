@@ -13,7 +13,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery3
-//= require datatable.js
+//= require datatable
+//= require pending
 
 
 //= require popper
