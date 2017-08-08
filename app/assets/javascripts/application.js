@@ -12,9 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require jquery3
-//= require datatable
-//= require pending
+//= require_tree .
 
 
 //= require popper

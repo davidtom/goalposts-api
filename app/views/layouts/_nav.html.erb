@@ -6,15 +6,15 @@
         <%= image_tag "soccer-silhouette-image.png", width:30, height: 30, alt: "logo" %>
         Goal Posts
       </a>
-      <%= link_to "Home", home_path, style: 'color: #000;' %>
+      <%= link_to "Home", root_path, style: 'color: #000;' %>
       <%= link_to "Highlights", highlights_path, style: 'color: #000;' %>
-      <%= link_to "Teams", teams_path, style: 'color: #000;' %>
+      <!-- <%= link_to "Teams", teams_path, style: 'color: #000;' %>
       <% if logged_in? %>
         <%= link_to "Log out", logout_path, method: :delete, style: 'color: #000;' %>
       <% else %>
         <%= link_to "Log in", login_path, style: 'color: #000;' %>
         <%= link_to "Sign up", signup_path, style: 'color: #000;' %>
-      <% end %>
+      <% end %> -->
     </div>
   </div><!-- /.container-fluid -->
 </nav>

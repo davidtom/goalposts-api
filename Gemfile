@@ -35,16 +35,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem "redd"
 # Use api to make html calls to http://www.football-data.org/index
 gem 'football__data'
-# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
-gem 'kaminari'
 # Ruby gem that provides a clear syntax for writing and deploying cron jobs.
 gem "whenever"
-# # Gem to get embeddable HTML representations of supported web pages, based on their URLs.
-# gem "ruby-oembed"
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Compass.
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-# Bootstrap JavaScript depends on jQuery
-gem 'jquery-rails'
+# A set of responders modules to dry up your Rails API app
+gem 'responders'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
