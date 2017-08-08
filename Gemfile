@@ -41,6 +41,8 @@ gem "whenever"
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 # A set of responders modules to dry up your Rails API app
 gem 'responders'
+# Support for Cross-Origin Resource Sharing (CORS) for Rack compatible web applications.
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
