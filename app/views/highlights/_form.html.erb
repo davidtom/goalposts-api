@@ -1,0 +1,34 @@
+<%= form_for highlight do |f| %>
+<div class="row">
+    <div class="col-md-6">
+      <p>
+        <%= f.label :title %>:*
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%= f.label :media_embed %>:*
+        <%= f.text_area :media_embed %>
+      </p>
+      <p>
+        <%= f.label :posted %>:*
+        <%= f.text_field :posted %>
+      </p>
+      <p>
+        <%= f.label :posted_utc %>:*
+        <%= f.text_field :posted_utc %>
+      </p>
+      <!-- UPDATE when teams are incorporated -->
+      <!-- <p>
+        <%= f.label :team_id %>:
+        <%= f.text_field :team_id %>
+      </p> -->
+      <p>
+        <%= f.label :url %>:
+        <%= f.text_field :url %>
+      </p>
+      <p>
+        <%= f.label :permalink %>:
+        <%= f.text_field :permalink %>
+      </p>
+      <p><%= f.submit "Submit"%></p>
+<% end %>

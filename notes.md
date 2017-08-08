@@ -1,6 +1,6 @@
 ##TODO## (newly prioritized!!)
 - SET UP DEPENDENT DESTROY RELATIONSHIPS
-- Add users
+- Add users (full functionality)
 - create page to add/edit teams
 - create data flow to try to match teams and send to a page to confirm/edit
 - Add a rating system to each goal (put top goal on front page?)
@@ -8,6 +8,7 @@
 - Create "god" access to be able to delete and edit (team, comments?)
 - Add api keys to secrets file
 - Bootstrap
+- Allow users to update password only if they supply previous
 
 - teams show page needs: link to add/edit crest, recent goals section, link to all team goals page (new route)
 
