@@ -44,6 +44,17 @@ class Highlight < ApplicationRecord
   }
   end
 
+  def self.all_reduced
+    # Selects all highlights from database with a reduced number of attributes
+    highlights = Highlight.all.select(:id, :title, :media_embed, :posted_utc, :url, :permalink)
+    # Add attributes to each highlight that are data manipulations of database attributes
+    highlights.collect do |highlight|
+      highlight.attributes.merge(clean_media_embed: highlight.clean_media_embed,
+                                  posted_utc_date: highlight.posted_utc_date,
+                                  posted_utc_time: highlight.posted_utc_time)
+    end
+  end
+
   def posted_utc_date
     #returns only the date when the highlight was posted to reddit
     posted_utc.to_datetime.to_date
