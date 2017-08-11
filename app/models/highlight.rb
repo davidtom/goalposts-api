@@ -46,12 +46,15 @@ class Highlight < ApplicationRecord
 
   def self.all_reduced
     # Selects all highlights from database with a reduced number of attributes
-    highlights = Highlight.all.select(:id, :title, :media_embed, :posted_utc, :url, :permalink)
-    # Add attributes to each highlight that are data manipulations of database attributes
-    highlights.collect do |highlight|
-      highlight.attributes.merge(clean_media_embed: highlight.clean_media_embed,
-                                  posted_utc_date: highlight.posted_utc_date,
-                                  posted_utc_time: highlight.posted_utc_time)
+    Highlight.all.collect do |highlight|
+      { id: highlight.id,
+        title: highlight.title,
+        url: highlight.url,
+        permalink: highlight.permalink,
+        media_embed: highlight.clean_media_embed,
+        posted_utc_date: highlight.posted_utc_date,
+        posted_utc_time: highlight.posted_utc_time
+      }
     end
   end
 
