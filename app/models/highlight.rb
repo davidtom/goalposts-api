@@ -46,7 +46,7 @@ class Highlight < ApplicationRecord
 
   def self.all_reduced
     # Selects all highlights from database with a reduced number of attributes
-    Highlight.all.collect do |highlight|
+    Highlight.ordered_all.collect do |highlight|
       { id: highlight.id,
         title: highlight.title,
         url: highlight.url,
