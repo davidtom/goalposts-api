@@ -1,4 +1,9 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+class ApplicationController < ActionController::API
+  # NOTE: leaving below for reference, not need when inhereting from API
+  # protect_from_forgery with: :null_session
 
+  # In some scenarios you may want to add back some functionality provided by
+  # ActionController::Base that is not present by default in ActionController::API,
+  # for instance MimeResponds. This module gives you the respond_to method.
+  include ActionController::MimeResponds
 end

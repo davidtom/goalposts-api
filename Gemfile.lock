@@ -52,6 +52,7 @@ GEM
     annotate (2.7.2)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
+    api-pagination (4.6.3)
     arel (8.0.0)
     autoprefixer-rails (7.1.2.3)
       execjs
@@ -212,6 +213,7 @@ GEM
     websocket-extensions (0.1.2)
     whenever (0.9.7)
       chronic (>= 0.6.3)
+    will_paginate (3.1.6)
     xpath (2.1.0)
       nokogiri (~> 1.3)
 
@@ -220,6 +222,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  api-pagination
   bcrypt (~> 3.1.7)
   bootstrap!
   byebug
@@ -243,6 +246,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   whenever
+  will_paginate
 
 BUNDLED WITH
    1.15.3

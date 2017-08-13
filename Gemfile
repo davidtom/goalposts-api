@@ -43,6 +43,9 @@ gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'responders'
 # Support for Cross-Origin Resource Sharing (CORS) for Rack compatible web applications.
 gem 'rack-cors', :require => 'rack/cors'
+# Gem for paginating API results
+gem 'will_paginate'
+gem 'api-pagination'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
