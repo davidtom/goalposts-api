@@ -79,7 +79,7 @@ class Highlight < ApplicationRecord
     if !iframe_string.nil?
       iframe_string.gsub("\\","")
     else
-      "Media embed not found - view highlight from source (link below)"
+      nil
     end
   end
 
