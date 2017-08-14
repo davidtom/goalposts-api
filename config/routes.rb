@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       resources :highlights, only: [:index]
     end
   end
+
+  get "/api/v1/highlights/search", to: "api/v1/highlights#search"
 end
