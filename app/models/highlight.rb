@@ -44,43 +44,78 @@ class Highlight < ApplicationRecord
   }
   end
 
-  def self.all_reduced
-    # Selects all highlights from database with a reduced number of attributes
-    Highlight.ordered_all.collect do |highlight|
-      { id: highlight.id,
-        title: highlight.title,
-        url: highlight.url,
-        permalink: highlight.permalink,
-        media_embed: highlight.clean_media_embed,
-        posted_utc_date: highlight.posted_utc_date,
-        posted_utc_time: highlight.posted_utc_time
+  def self.reduce_attributes(highlights)
+    highlights.collect do |highlight|
+      {
+        id: highlight["id"],
+        title: highlight["title"],
+        url: highlight["url"],
+        permalink: highlight["permalink"],
+        media_embed: Highlight.get_clean_media_embed(highlight["media_embed"]),
+        posted_utc_date: highlight["posted_utc"].to_datetime.to_date,
+        posted_utc_time: highlight["posted_utc"].to_datetime.strftime("%H:%M:%S")
       }
     end
   end
 
-  def posted_utc_date
-    #returns only the date when the highlight was posted to reddit
-    posted_utc.to_datetime.to_date
+  def self.all_reduced
+    # Selects all highlights from database and returns them with a reduced number of attributes
+    Highlight.reduce_attributes(Highlight.ordered_all)
   end
 
-  def posted_utc_time
-    #returns only the time (HH:MM:SS) when the highlight was posted to reddit
-    posted_utc.to_datetime.strftime("%H:%M:%S")
+  def self.search_reduced(query)
+    # Selects all highlights from database that match the search query and returns them with a reduced number of attributes
+    # Set up database connection and search terms
+    a = ActiveRecord::Base.connection
+    query_anywhere = "%#{query}%"
+    query_at_start = "#{query}%"
+    # Execute PG search query
+    result = a.execute(%Q{SELECT * FROM highlights WHERE title ILIKE #{a.quote(query_anywhere)} ORDER BY (title ILIKE #{a.quote(query_at_start)}) DESC, title})
+    # Iterate over results and reduce/transform attributes of each highlight
+    Highlight.reduce_attributes(result)
   end
 
-  def reddit_link
-    "http://www.reddit.com#{permalink}"
-  end
-
-  def clean_media_embed
+  def self.get_clean_media_embed(media_embed_string)
+    # Class method to be used on any string
     #Slice out text between <iframe> tags and remove backlashes
     #If there is no iframe tags found, will return a string to be displayed instead
-    iframe_string = self.media_embed.scan(/<iframe.+<\/iframe>/)[0]
+    iframe_string = media_embed_string.scan(/<iframe.+<\/iframe>/)[0]
     if !iframe_string.nil?
       iframe_string.gsub("\\","")
     else
       nil
     end
+  end
+
+  def self.get_utc_date(posted_utc)
+    #returns only the date from a UTC datetime
+    posted_utc.to_datetime.to_date
+  end
+
+  def self.get_utc_time(posted_utc)
+    #returns only the time (HH:MM:SS) from a UTC datetime
+    posted_utc.to_datetime.strftime("%H:%M:%S")
+  end
+
+  def clean_media_embed
+    # Method for an instance of Model class
+    #Slice out text between <iframe> tags and remove backlashes
+    #If there is no iframe tags found, will return a string to be displayed instead
+    Highlight.get_clean_media_embed(self.media_embed)
+  end
+
+  def posted_utc_date
+    #returns only the date when the highlight was posted to reddit
+    Highlight.get_utc_date(posted_utc)
+  end
+
+  def posted_utc_time
+    #returns only the time (HH:MM:SS) when the highlight was posted to reddit
+    Highlight.get_utc_time(posted_utc)
+  end
+
+  def reddit_link
+    "http://www.reddit.com#{permalink}"
   end
 
 end
