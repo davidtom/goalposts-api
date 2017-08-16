@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   end
 
   get "/api/v1/highlights/search", to: "api/v1/highlights#search"
+
+  # Backend Auth
+  post "/api/v1/users/signup", to: "api/v1/users#create"
+  # post "/api/v1/auth/login", to: "api/v1/auth#"
 end
