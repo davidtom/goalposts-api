@@ -16,7 +16,7 @@ class RedditAPIRunner
 
   def self.valid_flair?(flair)
     #Check if post flair indicates it is media (array in case it expands)
-    ["Media"].include?(flair) ? true : false
+    ["Media", "2nd leg*"].include?(flair) ? true : false
   end
 
   def self.remove_spaces(string)
