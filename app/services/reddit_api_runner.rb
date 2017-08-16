@@ -32,7 +32,7 @@ class RedditAPIRunner
 
   def self.has_score?(post_title)
     # Search for and return everything matching this pattern: (#-#)
-    remove_spaces(post_title).scan(/\d+-\d+/).any? ? true : false
+    remove_spaces(post_title).scan(/\d+-\d+|\[\d\]/).any? ? true : false
   end
 
 
