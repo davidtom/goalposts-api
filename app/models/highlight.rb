@@ -29,6 +29,8 @@ class Highlight < ApplicationRecord
   scope :ordered_all, -> {order("cast(posted_utc as date) DESC, cast(posted_utc as time) ASC")}
   scope :no_team, -> {where(team_id: nil)}
 
+  @@conn = ActiveRecord::Base.connection
+
   def self.assignment_hash(post)
     #convert data from a redd post object into a hash for mass assignment
   {
@@ -44,7 +46,7 @@ class Highlight < ApplicationRecord
   }
   end
 
-  def self.reduce_attributes(highlights)
+  def self.json_attributes(highlights)
     highlights.collect do |highlight|
       {
         id: highlight["id"],
@@ -60,19 +62,29 @@ class Highlight < ApplicationRecord
 
   def self.all_reduced
     # Selects all highlights from database and returns them with a reduced number of attributes
-    Highlight.reduce_attributes(Highlight.ordered_all)
+    Highlight.json_attributes(Highlight.ordered_all)
   end
 
-  def self.search_reduced(query)
+  def self.search_reduced(query, sort_options)
     # Selects all highlights from database that match the search query and returns them with a reduced number of attributes
-    # Set up database connection and search terms
-    a = ActiveRecord::Base.connection
+    # Set up database connection and search terms/sort options
     query_anywhere = "%#{query}%"
-    query_at_start = "#{query}%"
+    sort_params = self.get_sort_params(sort_options, query)
     # Execute PG search query
-    result = a.execute(%Q{SELECT * FROM highlights WHERE title ILIKE #{a.quote(query_anywhere)} ORDER BY (title ILIKE #{a.quote(query_at_start)}) DESC, title})
+    result = @@conn.execute(%Q{SELECT * FROM highlights WHERE title ILIKE #{@@conn.quote(query_anywhere)} ORDER BY #{sort_params}})
     # Iterate over results and reduce/transform attributes of each highlight
-    Highlight.reduce_attributes(result)
+    Highlight.json_attributes(result)
+  end
+
+  def self.get_sort_params(options, query)
+    query_at_start = "#{query}%"
+    if options
+      col = options.split("=")[0]
+      order = options.split("=")[1].upcase
+      return @@conn.quote_string("#{col} #{order}")
+    else
+      "(title ILIKE #{@@conn.quote(query_at_start)}) DESC, title"
+    end
   end
 
   def self.get_clean_media_embed(media_embed_string)

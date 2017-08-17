@@ -7,6 +7,6 @@ class Api::V1::HighlightsController < Api::V1::BaseController
   end
 
   def search
-    render json: Highlight.search_reduced(params[:title])
+    render json: Highlight.search_reduced(params[:title], params[:sort])
   end
 end
