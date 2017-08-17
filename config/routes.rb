@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :highlights, only: [:index]
+
+      get "/highlights/search", to: "highlights#search"
+
+      # Authentication
+      post "/signup", to: "users#create"
+      post "/login", to: "auth#create"
+
     end
   end
 
-  get "/api/v1/highlights/search", to: "api/v1/highlights#search"
-
-  # Backend Auth
-  post "/api/v1/users/signup", to: "api/v1/users#create"
-  # post "/api/v1/auth/login", to: "api/v1/auth#"
 end

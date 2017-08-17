@@ -26,11 +26,9 @@ class ApplicationController < ActionController::API
     authenticate_or_request_with_http_token do |jwt_token, options|
 
       decoded_token = decode_token(jwt_token)
+      user_id = decoded_token[0]["user_id"]
 
-      if decoded_token[0]["user_id"]
-        @current_user || User.find(decoded_token[0]["user_id"])
-      else
-      end
+      @current_user ||= User.find(user_id)
 
     end
   end
@@ -40,6 +38,7 @@ class ApplicationController < ActionController::API
   end
 
   def authorized
+    # Respond with error message unless user is logged in
     render json: {message: "Access denied: not authorized."}, status: 401 unless logged_in?
   end
 end
