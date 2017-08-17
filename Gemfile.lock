@@ -85,6 +85,8 @@ GEM
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    figaro (1.1.1)
+      thor (~> 0.14)
     football__data (0.2.3)
       faraday (~> 0.9)
       thor (~> 0.19)
@@ -229,6 +231,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  figaro
   football__data
   jbuilder (~> 2.5)
   jwt

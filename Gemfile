@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 # Use redd Reddit API Wrapper
 gem "redd"
+# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
+gem "figaro"
 # Use api to make html calls to http://www.football-data.org/index
 gem 'football__data'
 # Ruby gem that provides a clear syntax for writing and deploying cron jobs.
