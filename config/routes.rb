@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       # Authentication
       post "/signup", to: "users#create"
       post "/login", to: "auth#create"
+      get "/current_user", to: "users#current_user"
 
     end
   end
