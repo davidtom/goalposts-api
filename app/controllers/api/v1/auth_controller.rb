@@ -8,7 +8,7 @@ class Api::V1::AuthController < Api::V1::BaseController
     if user && user.authenticate(params[:password])
       payload = {user_id: user.id}
       token = issue_token(payload)
-      render json: {jwt: token}
+      render json: {jwt: token, user: {username: user.username, admin: user.admin}}
     else
       render json: {error: "Invalid credentials."}
     end
@@ -17,8 +17,8 @@ class Api::V1::AuthController < Api::V1::BaseController
   def show
     # if application_controller#authorized is successful, return data for user
     render json: {
-      id: current_user.id,
-      username: current_user.username
+      username: current_user.username,
+      admin: current_user.admin
     }
   end
 
