@@ -6,11 +6,12 @@ Rails.application.routes.draw do
       resources :highlights, only: [:index]
 
       get "/highlights/search", to: "highlights#search"
+      # TODO: refactor this to a search controller! index action, highlights is just a param
 
       # Authentication
       post "/signup", to: "users#create"
       post "/login", to: "auth#create"
-      get "/current_user", to: "users#current_user"
+      get "/auth", to: "auth#show" #TODO: auth#show
 
     end
   end

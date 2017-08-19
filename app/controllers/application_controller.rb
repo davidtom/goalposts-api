@@ -23,13 +23,17 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
+    # pull jwt token out of request.headers (assumed to be in format: {Authorization: "Token token=xxx"})
     authenticate_or_request_with_http_token do |jwt_token, options|
-
       decoded_token = decode_token(jwt_token)
-      user_id = decoded_token[0]["user_id"]
-
-      @current_user ||= User.find(user_id)
-
+      # if a decoded token is found, use it to return a user
+      if decoded_token
+        user_id = decoded_token[0]["user_id"]
+        @current_user ||= User.find_by(id: user_id)
+      else
+      # if no token is found, return nil so that logged_in? return false
+        nil
+      end
     end
   end
 
