@@ -63,7 +63,7 @@ class Highlight < ApplicationRecord
     Highlight.reduce_attributes(Highlight.ordered_all)
   end
 
-  def self.search_reduced(query)
+  def self.search_by_title(query)
     # Selects all highlights from database that match the search query and returns them with a reduced number of attributes
     # Set up database connection and search terms
     a = ActiveRecord::Base.connection
