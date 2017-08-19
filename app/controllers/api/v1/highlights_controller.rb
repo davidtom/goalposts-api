@@ -8,7 +8,4 @@ class Api::V1::HighlightsController < Api::V1::BaseController
     paginate json: Highlight.all_reduced, per_page: 10
   end
 
-  def search
-    render json: Highlight.search_reduced(params[:title])
-  end
 end
