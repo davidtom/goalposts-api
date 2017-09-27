@@ -3,9 +3,19 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :highlights, only: [:index]
+      resources :highlights, only: [:index, :destroy]
+      resources :search, only: [:index]
+
+
+      # get "/highlights/search", to: "highlights#search"
+      # TODO: refactor this to a search controller! index action, highlights is just a param
+
+      # Authentication
+      post "/signup", to: "users#create"
+      post "/login", to: "auth#create"
+      get "/auth", to: "auth#show"
+
     end
   end
 
-  get "/api/v1/highlights/search", to: "api/v1/highlights#search"
 end
