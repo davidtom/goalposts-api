@@ -65,11 +65,7 @@ class Highlight < ApplicationRecord
     Highlight.json_attributes(Highlight.ordered_all)
   end
 
-<<<<<<< HEAD
   def self.search_reduced(query, sort_options)
-=======
-  def self.search_by_title(query)
->>>>>>> users
     # Selects all highlights from database that match the search query and returns them with a reduced number of attributes
     # Set up database connection and search terms/sort options
     query_anywhere = "%#{query}%"
