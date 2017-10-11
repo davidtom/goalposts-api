@@ -5,7 +5,7 @@ class Api::V1::SearchController < Api::V1::BaseController
 
   def index
     if params[:resource] = "highlight"
-      render json: Highlight.search_by_title(params[:title])
+      render json: Highlight.search_reduced(params[:title], params[:sort])
     else
       render json: {error: "invalid resource"}
     end

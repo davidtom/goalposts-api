@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
   include ActionController::MimeResponds
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
-  before_action :authorized
+  before_action :authorized, except: [:issue_token, :decode_token, :logged_in?]
 
   def issue_token(payload)
     JWT.encode(payload, ENV["JWT_SECRET"], ENV["JWT_ALGORITHM"])
