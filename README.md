@@ -1,7 +1,7 @@
 # Spotifyzer-api
 * Rails API for GoalPosts - an app that aggregates goal highlights from Reddit's /r/soccer
 * Provides data and makes Reddit API calls for React front end ([repo](https://github.com/davidtom/goalposts-fe))
-* View live site [here](http://www.goal-posts.com/) (please be patient while Heroku wakes up)
+* View live site [here](https://goalposts-fe.herokuapp.com/) (please be patient while Heroku wakes up)
 
 ## Features
 * Responds to requests for highlights with paginated JSON objects
